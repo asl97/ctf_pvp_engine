@@ -119,7 +119,7 @@ function ctf.action(area, msg)
 	if area and area ~= "" then
 		minetest.log("action", "[CaptureTheFlag] (" .. area .. ") " .. msg)
 	else
-		nubetest.log("action", "[CaptureTheFlag] " .. msg)
+		minetest.log("action", "[CaptureTheFlag] " .. msg)
 	end
 end
 function ctf.warning(area, msg)
@@ -212,9 +212,8 @@ function ctf.load()
 			for i = 1, #ctf.registered_on_load do
 				ctf.registered_on_load[i](table)
 			end
-			return
+			ctf._loaddata = table
 		end
-		ctf._loaddata = table
 	else
 		ctf.log("io", "ctf.txt is not present in the world folder")
 		ctf._new_game = true
