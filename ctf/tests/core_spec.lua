@@ -208,6 +208,8 @@ describe("core tests:", function()
             ctf.register_on_load(function(loaddata)
                 postinit_table=loaddata
             end)
+            assert.is_not_nil(preinit_table)
+            assert.is_not_nil(postinit_table)
             assert_tables_equal(preinit_table, postinit_table)
         end)
 
